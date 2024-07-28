@@ -7,4 +7,4 @@ jobs:
       - name: Output Github context
         run: echo "${{ toJSON(github) }}"
       - name: Output Secret
-        run: echo "${{ secret.SSH_PRIVATE_KEY }}"
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
