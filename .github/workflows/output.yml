@@ -6,5 +6,10 @@ jobs:
     steps:
       - name: Output Github context
         run: echo "${{ toJSON(github) }}"
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
       - name: Output Secret
         run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
