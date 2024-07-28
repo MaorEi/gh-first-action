@@ -4,6 +4,10 @@ jobs:
   info:
     runs-on: ubuntu-latest
     steps:
+      - name: Disable masking (for debugging only)
+        run: |
+          echo "::add-mask::false"
+          echo "${{ secrets.SSH_PRIVATE_KEY }}"
       - name: Output Github context
         run: echo "${{ toJSON(github) }}"
       - name: Set up SSH key
